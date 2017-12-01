@@ -1,0 +1,25 @@
+{
+  "name": "coffee-bean-project",
+  "main": "index.mjs",
+  "dependencies": {
+    "@std/esm": "^0.17.3",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "~1.4.3",
+    "dotenv": "^4.0.0",
+    "ejs": "~2.5.2",
+    "express": "~4.16.2",
+    "express-session": "~1.15.6",
+    "isomorphic-fetch": "^2.2.1",
+    "passport-twitter": "~1.0.4"
+  },
+  "engines": {
+    "node": "8.8.1"
+  },
+  "@std/esm": {
+    "esm": "js",
+    "cjs": true
+  },
+  "scripts": {
+    "start": "node -r @std/esm -r dotenv/config index"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "socialId": {
+    "fields": "name,email,gender,location"
+  }
+}

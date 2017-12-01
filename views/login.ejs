@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Login</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <style>
+      html, body { height: 100%; }
+      .wrapper { height: 100%; width: 100%; display: table; }
+      .wrapper .login { height: 100%; display: table-cell; vertical-align: middle; }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="login text-center">
+        <span id='facebook_login' class="btn btn-primary">
+          <span class="fa fa-facebook"></span>&nbsp;Facebook
+        </span>
+        <span id='twitter_login' class="btn btn-info">
+          <span class="fa fa-twitter"></span>&nbsp;Twitter
+        </span>
+        <span id='google_login' class="btn btn-danger">
+          <span class="fa fa-google-plus"></span>&nbsp;Google+
+        </span>
+        <span id='linkedin_login' class="btn btn-primary">
+          <span class="fa fa-linkedin"></span>&nbsp;LinkedIn
+        </span>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/mgalante/jquery.redirect/master/jquery.redirect.js"></script>
+    <script>
+      (function () {
+        if (typeof(window.socialid) !== "object") window.socialid = {};
+        socialid.onLoad = function() {
+          socialid.login.init(423, { loginType: "event" });
+          socialid.login.startLoginClick("facebook_login", "facebook");
+          socialid.login.startLoginClick("twitter_login", "twitter");
+          socialid.login.startLoginClick("google_login", "gplus");
+          socialid.login.startLoginClick("linkedin_login", "linkedin");
+          socialid.events.onLoginSuccess.addHandler(function (data) {
+            $.redirect('auth', data);
+          });
+        };
+        var e = document.createElement('script');
+        e.type = 'text/javascript';
+        e.id = 'socialid_api_script';
+        if (document.location.protocol === 'https:') {
+          e.src = 'https://staging.socialidnow.com/assets/api/socialid.js';
+        } else {
+          e.src = 'http://staging.socialidnow.com/assets/api/socialid.js';
+        }
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(e, s);
+      })();
+    </script>
+  </body>
+</html>

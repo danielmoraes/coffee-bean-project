@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Private</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  </head>
+  <body>
+    <div class="page-header text-center">
+      <h1>Welcome, <%= user.name %></h1>
+      <a href="/logout" class="btn btn-default">Logout</a>
+    </div>
+    <div class="container">
+      <% if (user) { %>
+        <div class="panel panel-default">
+          <div class="panel-body text-center">
+            <img class="img-circle img-thumbnail" src="<%= user.picture_url %>" alt="profile" />
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">User Info</div>
+          <table class="table">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Gender</th>
+              <th>Location</th>
+            </tr>
+            <tr>
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
+              <td><%= user.profile.gender %></td>
+              <td><%= user.location %></td>
+            </tr>
+          </table>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <pre><%- JSON.stringify(user, null, 2) %></pre>
+          </div>
+        </div>
+      <% } else { %>
+        <p>No user.</p>
+      <% } %>
+    </div>
+  </body>
+</html>
