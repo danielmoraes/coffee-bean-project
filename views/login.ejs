@@ -33,7 +33,7 @@
       (function () {
         if (typeof(window.socialid) !== "object") window.socialid = {};
         socialid.onLoad = function() {
-          socialid.login.init(423, { loginType: "event" });
+          socialid.login.init(<%= appId %>, { loginType: "event" });
           socialid.login.startLoginClick("facebook_login", "facebook");
           socialid.login.startLoginClick("twitter_login", "twitter");
           socialid.login.startLoginClick("google_login", "gplus");

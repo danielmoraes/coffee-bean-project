@@ -5,7 +5,8 @@ const isLoggedIn = (req, res, next) =>
 
 export default (app) => {
   app.get('/', (req, res) => {
-    res.render('login.ejs')
+    const appId = process.env.SOCIALID_APP_ID
+    res.render('login.ejs', { appId })
   })
 
   app.get('/private', isLoggedIn, (req, res) => {
