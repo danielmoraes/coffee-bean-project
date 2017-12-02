@@ -13,12 +13,14 @@ https://infinite-beach-53993.herokuapp.com/
 npm install
 ```
 
-2. Run the app
+2. Setup `.env` from `.env.example`
+
+3. Run the app
 ```
   npm start
 ```
 
-3. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## License
 
